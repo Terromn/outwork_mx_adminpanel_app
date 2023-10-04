@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:outwork_mx_admin_app/utils/get_media_query.dart';
 
 import 'app_color_palette.dart';
 
-final String? _teFont = GoogleFonts.mPlusRounded1c().fontFamily;
+final String? _teFont = GoogleFonts.inter().fontFamily;
 
 class TeAppThemeData {
   static const double contentMargin = 32;
@@ -16,6 +15,13 @@ class TeAppThemeData {
       progressIndicatorTheme: const ProgressIndicatorThemeData(
         color: TeAppColorPalette.green,
       ),
+
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+          backgroundColor: TeAppColorPalette.green,
+          foregroundColor: TeAppColorPalette.black,
+          elevation: 44,
+          iconSize: 32, 
+          ),
 
       // APPBAR //
       appBarTheme: AppBarTheme(
@@ -171,18 +177,30 @@ class TeAppThemeData {
       brightness: Brightness.dark,
       primaryColor: TeAppColorPalette.black,
       fontFamily: _teFont,
+
       textTheme: TextTheme(
+        // FOR BUTTONS //
+        labelMedium: const TextStyle(
+          fontSize: 16.0,
+          fontWeight: FontWeight.bold,
+          color: TeAppColorPalette.black,
+        ),
         displayLarge: const TextStyle(
             fontSize: 32.0,
             fontWeight: FontWeight.bold,
             color: TeAppColorPalette.white),
-        displayMedium:
-            const TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
+        displayMedium: const TextStyle(
+          fontSize: 22.0,
+          fontWeight: FontWeight.bold,
+        ),
         bodyLarge: const TextStyle(
             fontSize: 20.0,
             color: TeAppColorPalette.white,
             fontWeight: FontWeight.bold),
-        bodyMedium: TextStyle(fontSize: 14.0, color: Colors.grey[300]),
+        bodyMedium: TextStyle(
+          fontSize: 14.0,
+          color: Colors.grey[300],
+        ),
       ),
     );
   }
