@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:outwork_mx_admin_app/assets/app_color_palette.dart';
 import 'package:outwork_mx_admin_app/assets/app_theme.dart';
 import 'package:outwork_mx_admin_app/utils/get_media_query.dart';
@@ -116,28 +115,24 @@ class _InformationSmallCard extends StatelessWidget {
         Padding(
             padding: const EdgeInsets.only(
                 left: _cardsPadding, right: _cardsPadding * 2),
-            child: Icon(
-              icon,
-              size: 56,
+            child: Container(
+              height: 68,
+              width: 68,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: TeAppColorPalette.green),
+              child: Icon(
+                icon,
+                size: 32,
+                color: TeAppColorPalette.black,
+              ),
             )),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.w900,
-              ),
-            ),
-            Text(
-              subtitle,
-              style: const TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.w400,
-              ),
-            ),
+            Text(title, style: Theme.of(context).textTheme.displayLarge),
+            Text(subtitle, style: Theme.of(context).textTheme.displayMedium),
           ],
         )
       ],
@@ -159,40 +154,75 @@ class _LeftWidget extends StatelessWidget {
         color: TeAppColorPalette.black,
         borderRadius: BorderRadius.circular(28),
       ),
-      child: const Padding(
-        padding: EdgeInsets.all(22.0),
+      child: Padding(
+        padding: const EdgeInsets.all(22.0),
         child: Column(
           children: [
             Row(
               children: [
                 Padding(
-                    padding: EdgeInsets.only(
-                        left: _cardsPadding, right: _cardsPadding * 2),
-                    child: Icon(
-                      FontAwesomeIcons.dumbbell,
-                      size: 56,
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: _cardsPadding),
+                    child: Container(
+                      height: 68,
+                      width: 68,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: TeAppColorPalette.green),
+                      child: const Icon(
+                        FontAwesomeIcons.dumbbell,
+                        size: 32,
+                        color: TeAppColorPalette.black,
+                      ),
                     )),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Coaches",
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    Text(
-                      "De hoy",
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
+                    Text("Coaches",
+                        style: Theme.of(context).textTheme.displayLarge),
+                    Text("De Hoy",
+                        style: Theme.of(context).textTheme.displayMedium),
                   ],
                 )
               ],
+            ),
+            Expanded(
+              child: SizedBox(
+                child: Container(),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: _cardsPadding ),
+                    child: Container(
+                      height: 68,
+                      width: 68,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: TeAppColorPalette.green),
+                      child: const Icon(
+                        Icons.sports_gymnastics_rounded,
+                        size: 56,
+                        color: TeAppColorPalette.black,
+                      ),
+                    )),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Clases",
+                        style: Theme.of(context).textTheme.displayLarge),
+                    Text("De Hoy",
+                        style: Theme.of(context).textTheme.displayMedium),
+                  ],
+                )
+              ],
+            ),
+            Expanded(
+              child: Container(),
             ),
           ],
         ),

@@ -200,13 +200,18 @@ class TeAppThemeData {
 
         displayLarge: TextStyle(
             fontSize: 32.0,
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w900,
             color: TeAppColorPalette.white),
 
         displayMedium: TextStyle(
-          fontSize: 22.0,
-          fontWeight: FontWeight.bold,
-        ),
+            fontSize: 26.0,
+            fontWeight: FontWeight.w400,
+            color: TeAppColorPalette.white),
+
+        displaySmall: TextStyle(
+            fontSize: 18.0,
+            fontWeight: FontWeight.w400,
+            color: TeAppColorPalette.white),
       ),
     );
   }
