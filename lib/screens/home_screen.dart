@@ -1,5 +1,6 @@
 // ignore_for_file: must_be_immutable
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:outwork_mx_admin_app/assets/app_color_palette.dart';
@@ -141,9 +142,7 @@ class _InformationSmallCard extends StatelessWidget {
 }
 
 class _LeftWidget extends StatelessWidget {
-  const _LeftWidget({
-    super.key,
-  });
+  const _LeftWidget();
 
   @override
   Widget build(BuildContext context) {
@@ -189,7 +188,41 @@ class _LeftWidget extends StatelessWidget {
             ),
             Expanded(
               child: SizedBox(
-                child: Container(),
+                child: SizedBox(
+                child: FutureBuilder<QuerySnapshot>(
+                  // Fetch data from Firestore "coaches" collection
+                  future: FirebaseFirestore.instance.collection('coaches').get(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(child: CircularProgressIndicator());
+                    } else if (snapshot.hasError) {
+                      return Center(child: Text('Error: ${snapshot.error}'));
+                    } else {
+                      final coaches = snapshot.data!.docs;
+
+                      return ListView.builder(
+                        itemCount: coaches.length,
+                        itemBuilder: (context, index) {
+                          final coachName =
+                              coaches[index].get('coachName') ?? 'Unknown';
+
+                          return ListTile(
+                            title: Text(
+                              coachName,
+                              style: Theme.of(context).textTheme.displayLarge,
+                            ),
+                            subtitle: Text(
+                              'Coach',
+                              style: Theme.of(context).textTheme.displayMedium,
+                            ),
+                            // Add any other customizations or widgets here
+                          );
+                        },
+                      );
+                    }
+                  },
+                ),
+              ),
               ),
             ),
             Row(
