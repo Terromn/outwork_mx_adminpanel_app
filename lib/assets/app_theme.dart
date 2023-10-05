@@ -3,10 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'app_color_palette.dart';
 
-final String? _teFont = GoogleFonts.inter().fontFamily;
-
 class TeAppThemeData {
-  static const double contentMargin = 32;
+  static const double contentMargin = 32 * 2;
+  static String? teFont = GoogleFonts.inter().fontFamily;
 
   ThemeData getDarkTheme(BuildContext context) {
     return ThemeData(
@@ -17,11 +16,11 @@ class TeAppThemeData {
       ),
 
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: TeAppColorPalette.green,
-          foregroundColor: TeAppColorPalette.black,
-          elevation: 44,
-          iconSize: 32, 
-          ),
+        backgroundColor: TeAppColorPalette.green,
+        foregroundColor: TeAppColorPalette.black,
+        elevation: 44,
+        iconSize: 32,
+      ),
 
       // APPBAR //
       appBarTheme: AppBarTheme(
@@ -32,7 +31,7 @@ class TeAppThemeData {
         titleTextStyle: TextStyle(
           color: TeAppColorPalette.black,
           fontSize: 26,
-          fontFamily: _teFont,
+          fontFamily: teFont,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -176,30 +175,37 @@ class TeAppThemeData {
       // GENERAL //
       brightness: Brightness.dark,
       primaryColor: TeAppColorPalette.black,
-      fontFamily: _teFont,
+      fontFamily: teFont,
 
-      textTheme: TextTheme(
+      textTheme: const TextTheme(
+        // FOR TITLES //
+        titleMedium: TextStyle(
+          fontSize: 32,
+          fontWeight: FontWeight.w600,
+          color: TeAppColorPalette.black,
+        ),
+
+        titleLarge: TextStyle(
+          fontSize: 54,
+          fontWeight: FontWeight.w900,
+          color: TeAppColorPalette.black,
+        ),
+
         // FOR BUTTONS //
-        labelMedium: const TextStyle(
+        labelMedium: TextStyle(
           fontSize: 16.0,
           fontWeight: FontWeight.bold,
           color: TeAppColorPalette.black,
         ),
-        displayLarge: const TextStyle(
+
+        displayLarge: TextStyle(
             fontSize: 32.0,
             fontWeight: FontWeight.bold,
             color: TeAppColorPalette.white),
-        displayMedium: const TextStyle(
+
+        displayMedium: TextStyle(
           fontSize: 22.0,
           fontWeight: FontWeight.bold,
-        ),
-        bodyLarge: const TextStyle(
-            fontSize: 20.0,
-            color: TeAppColorPalette.white,
-            fontWeight: FontWeight.bold),
-        bodyMedium: TextStyle(
-          fontSize: 14.0,
-          color: Colors.grey[300],
         ),
       ),
     );

@@ -54,7 +54,7 @@ class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(
-                        top: TeAppThemeData.contentMargin * 2),
+                        top: TeAppThemeData.contentMargin),
                     child: Image.asset(
                       'assets/outworkLogo.png',
                       width: 200,
@@ -63,14 +63,20 @@ class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
                   ),
                   Text(
                     "OUTWORK",
-                    style: Theme.of(context).textTheme.displayLarge,
+                    style: TextStyle(
+                      color: TeAppColorPalette.white,
+                      fontFamily: Theme.of(context).textTheme.titleMedium?.fontFamily,
+                      fontSize: Theme.of(context).textTheme.titleMedium?.fontSize,
+                      fontWeight: Theme.of(context).textTheme.titleMedium?.fontWeight,
+
+                    ),
                   ),
                   const SizedBox(
-                    height: TeAppThemeData.contentMargin,
+                    height: TeAppThemeData.contentMargin * .5,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: TeAppThemeData.contentMargin * 2),
+                        horizontal: TeAppThemeData.contentMargin),
                     child: Column(
                       children: [
                         TeMenuButton(
