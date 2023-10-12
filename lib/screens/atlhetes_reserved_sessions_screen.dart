@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:outwork_mx_admin_app/utils/get_media_query.dart';
 import 'package:outwork_mx_admin_app/widgets/today_class_card.dart';
@@ -9,9 +11,9 @@ class TodaysClassesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final data = ModalRoute.of(context)!.settings.arguments as dynamic;
-    final userCount = data?[0] as int;
+    // final userCount = data?[0] as int;
     final classIds = data?[1] as List<String>;
-    final userNames = data?[3] as Map<String, List<String>>;
+    // final userNames = data?[3] as Map<String, List<String>>;
 
     return Scaffold(
       appBar: AppBar(
@@ -32,8 +34,12 @@ class TodaysClassesScreen extends StatelessWidget {
           itemCount: classIds.length,
           itemBuilder: (BuildContext context, int index) {
             return FutureBuilder<DocumentSnapshot>(
-              future: FirebaseFirestore.instance.collection('classes').doc(classIds[index]).get(),
-              builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+              future: FirebaseFirestore.instance
+                  .collection('classes')
+                  .doc(classIds[index])
+                  .get(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<DocumentSnapshot> snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return TodayClassCard(
                     classDuration: null,
@@ -51,8 +57,10 @@ class TodaysClassesScreen extends StatelessWidget {
                 }
 
                 if (snapshot.hasData) {
-                  final classData = snapshot.data!.data() as Map<String, dynamic>;
+                  final classData =
+                      snapshot.data!.data() as Map<String, dynamic>;
                   final classCoach = classData['classCoach'];
+                  // ignore: unused_local_variable
                   final classDescription = classData['classDescription'];
                   final classDuration = classData['classDuration'];
                   final classLimitSpaces = classData['classLimitSpaces'];

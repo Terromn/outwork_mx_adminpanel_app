@@ -86,7 +86,7 @@ class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
                               // ignore: avoid_print
                               print("home button pressed");
                               setState(() {
-                                widget._currentRightScreen =  HomeScreen();
+                                widget._currentRightScreen =  const HomeScreen();
                               });
                             }),
                         TeMenuButton(
