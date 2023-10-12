@@ -13,7 +13,7 @@ import 'home_screen.dart';
 
 // ignore: must_be_immutable
 class DrawerMenuScreen extends StatefulWidget {
-  Widget _currentRightScreen = const HomeScreen();
+  Widget _currentRightScreen =  const HomeScreen();
 
   DrawerMenuScreen({super.key});
 
@@ -86,7 +86,7 @@ class _DrawerMenuScreenState extends State<DrawerMenuScreen> {
                               // ignore: avoid_print
                               print("home button pressed");
                               setState(() {
-                                widget._currentRightScreen = const HomeScreen();
+                                widget._currentRightScreen =  HomeScreen();
                               });
                             }),
                         TeMenuButton(

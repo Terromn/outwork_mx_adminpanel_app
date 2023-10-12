@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:outwork_mx_admin_app/assets/app_color_palette.dart';
 
 class AdministrationScreen extends StatefulWidget {
   const AdministrationScreen({super.key});
@@ -13,7 +14,7 @@ class _AdministrationScreenState extends State<AdministrationScreen> {
     return  Container(
       height: double.infinity,
       width: double.infinity,
-      color: Colors.green,
+      color: TeAppColorPalette.blackLight,
     );
   }
 }
