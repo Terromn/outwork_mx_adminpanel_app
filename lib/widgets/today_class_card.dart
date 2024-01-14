@@ -11,9 +11,11 @@ class TodayClassCard extends StatelessWidget {
   String classType;
   DateTime? classTime;
   int? classDuration;
-  int atletasAsistiendo;
+  int? atletasAsistiendo;
   String? screen;
   dynamic data;
+
+  String? classId;
 
   TodayClassCard({
     required this.classDuration,
@@ -23,17 +25,27 @@ class TodayClassCard extends StatelessWidget {
     required this.coachName,
     required this.classType,
     required this.classTime,
+    this.classId,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+    classDuration ??= 0;
+
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, screen!, arguments: data);
+        Navigator.pushNamed(
+          context,
+          screen!,
+          arguments: {
+            'data': data,
+            'classId': classId,
+          },
+        );
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 28.0),
+        padding: const EdgeInsets.symmetric(vertical: 20.0),
         child: Container(
           decoration: BoxDecoration(
             color: TeAppColorPalette.black,
@@ -51,18 +63,21 @@ class TodayClassCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.all(TeAppThemeData.contentMargin * .5),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 120,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: TeAppColorPalette.green,
-                      borderRadius: BorderRadius.circular(22),
-                    ),
-                    child: Center(
-                      child: GetIconBasedOnSession.getIcon(
-                          classType, 48, TeAppColorPalette.black),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 18.0),
+                    child: Container(
+                      width: 70,
+                      height: 70,
+                      decoration: BoxDecoration(
+                        color: TeAppColorPalette.green,
+                        borderRadius: BorderRadius.circular(22),
+                      ),
+                      child: Center(
+                        child: GetIconBasedOnSession.getIcon(
+                            classType, 48, TeAppColorPalette.black),
+                      ),
                     ),
                   ),
                   Column(

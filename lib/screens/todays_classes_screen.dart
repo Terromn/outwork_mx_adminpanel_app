@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:outwork_mx_admin_app/utils/get_media_query.dart';
@@ -12,7 +12,7 @@ class TodaysClassesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final data = ModalRoute.of(context)!.settings.arguments as dynamic;
     // final userCount = data?[0] as int;
-    final classIds = data?[1] as List<String>;
+    final classIds = data?[1] as List<dynamic>;
     // final userNames = data?[3] as Map<String, List<String>>;
 
     return Scaffold(
@@ -60,20 +60,23 @@ class TodaysClassesScreen extends StatelessWidget {
                   final classData =
                       snapshot.data!.data() as Map<String, dynamic>;
                   final classCoach = classData['classCoach'];
-                  // ignore: unused_local_variable
                   final classDescription = classData['classDescription'];
                   final classDuration = classData['classDuration'];
-                  final classLimitSpaces = classData['classLimitSpaces'];
+                  final athletesAssisting = classData['athletesAssisting'];
                   final classTimeStamp = classData['classTimeStamp'];
                   final classType = classData['classType'];
+                  
 
                   return TodayClassCard(
                     classDuration: classDuration,
                     data: data,
-                    screen: "/AtlhetesReservedClassesScreen",
+
+                    screen: '/AtlhetesReservedScreen',
+
                     coachName: classCoach,
-                    atletasAsistiendo: classLimitSpaces,
+                    atletasAsistiendo: athletesAssisting.length,
                     classType: classType,
+                    classId: snapshot.data!.id,
                     classTime: classTimeStamp.toDate(),
                   );
                 }

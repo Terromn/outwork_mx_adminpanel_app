@@ -9,7 +9,7 @@ import 'package:outwork_mx_admin_app/logic/fetchers.dart';
 import 'package:outwork_mx_admin_app/utils/get_media_query.dart';
 import 'package:intl/intl.dart';
 
-const double _cardsPadding = 22;
+const double _cardsPadding = 12;
 final Fetch _fetch = Fetch();
 
 class HomeScreen extends StatefulWidget {
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         } else {
                           final data = snapshot.data;
                           final userCount = data?[0] as int;
-                          final classIds = data?[1] as List<String>;
+                          final classIds = data?[1] as List<dynamic>;
                           final firstAndLastClassTime =
                               data?[2] as List<DateTime>;
 
@@ -222,7 +222,7 @@ class _InformationSmallCard extends StatelessWidget {
               ),
               child: Icon(
                 icon,
-                size: 32,
+                size: 28,
                 color: TeAppColorPalette.black,
               ),
             ),

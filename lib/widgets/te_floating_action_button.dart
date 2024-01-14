@@ -12,42 +12,42 @@ class TeFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpandableFab(
-      distance: 200,
+      distance: 100,
+      type: ExpandableFabType.up,
+      childrenOffset: const Offset(-4, 0),
       overlayStyle:  ExpandableFabOverlayStyle(
-        blur: 6,
+        blur: 0,
       ),
 
       openButtonBuilder: RotateFloatingActionButtonBuilder(
-        child: const Icon(FontAwesomeIcons.screwdriverWrench),
-        fabSize: ExpandableFabSize.large,
+        child: const Icon(FontAwesomeIcons.screwdriverWrench, size: 20,),
+        fabSize: ExpandableFabSize.regular,
         foregroundColor: TeAppColorPalette.black,
         backgroundColor: TeAppColorPalette.green,
       ),
       closeButtonBuilder: DefaultFloatingActionButtonBuilder(
-        child: const Icon(Icons.close),
-        fabSize: ExpandableFabSize.large,
+        child: const Icon(FontAwesomeIcons.xmark, size: 22,),
+        fabSize: ExpandableFabSize.small,
       ),
       children: [
-        FloatingActionButton.small(
-          heroTag: null,
-          child: const Icon(FontAwesomeIcons.qrcode),
-          onPressed: () {},
+        FloatingActionButton.small
+        (
+          
+          child: const Icon(FontAwesomeIcons.qrcode, size: 20),
+          onPressed: () {
+            Navigator.pushNamed(context, '/QRScannerScreen');
+          },
+          
         ),
         FloatingActionButton.small(
-          heroTag: null,
-          child: const Icon(FontAwesomeIcons.searchengin),
-          onPressed: () {},
+          child: const Icon(FontAwesomeIcons.searchengin, size: 20,),
+          onPressed: () {
+           
+          },
+          
         ),
-         FloatingActionButton.small(
-          heroTag: null,
-          child: const Icon(Icons.search),
-          onPressed: () {},
-        ),
-         FloatingActionButton.small(
-          heroTag: null,
-          child: const Icon(Icons.search),
-          onPressed: () {},
-        ),
+      
+      
         
       ],
     );

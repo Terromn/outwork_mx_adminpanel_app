@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app_color_palette.dart';
 
 class TeAppThemeData {
-  static const double contentMargin = 32 * 2;
+  static const double contentMargin = 32;
   static String? teFont = GoogleFonts.inter().fontFamily;
 
   ThemeData getDarkTheme(BuildContext context) {
@@ -180,31 +180,31 @@ class TeAppThemeData {
       textTheme: const TextTheme(
         // FOR TITLES //
         titleMedium: TextStyle(
-          fontSize: 32,
+          fontSize: 18,
           fontWeight: FontWeight.w600,
           color: TeAppColorPalette.black,
         ),
 
         titleLarge: TextStyle(
-          fontSize: 54,
+          fontSize: 38,
           fontWeight: FontWeight.w900,
           color: TeAppColorPalette.black,
         ),
 
         // FOR BUTTONS //
         labelMedium: TextStyle(
-          fontSize: 16.0,
+          fontSize: 14.0,
           fontWeight: FontWeight.bold,
           color: TeAppColorPalette.black,
         ),
 
         displayLarge: TextStyle(
-            fontSize: 32.0,
+            fontSize: 26.0,
             fontWeight: FontWeight.w900,
             color: TeAppColorPalette.white),
 
         displayMedium: TextStyle(
-            fontSize: 26.0,
+            fontSize: 20.0,
             fontWeight: FontWeight.w400,
             color: TeAppColorPalette.white),
 
