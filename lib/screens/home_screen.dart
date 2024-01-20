@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   data: null,
                                   screen: null,
                                   icon: FontAwesomeIcons.peopleGroup,
-                                  title: "Usuarios",
+                                  title: "Usuarios Que",
                                   subtitle: "Reservaron",
                                 ),
                               ),
@@ -133,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   data: data,
                                   screen: "/TodaysClassesScreen",
                                   icon: FontAwesomeIcons.peopleGroup,
-                                  title: "$userCount Usuarios",
+                                  title: "Usuarios Que",
                                   subtitle: "Reservaron",
                                 ),
                               ),
@@ -178,11 +178,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
- 
 }
-
-
 
 class _InformationSmallCard extends StatelessWidget {
   IconData icon;
@@ -242,6 +238,7 @@ class _InformationSmallCard extends StatelessWidget {
 }
 
 class _RightWidget extends StatelessWidget {
+  // Do something with the user data...
   const _RightWidget();
 
   @override

@@ -115,6 +115,11 @@ class TeAppThemeData {
           borderSide: BorderSide(color: TeAppColorPalette.green, width: 2),
           borderRadius: BorderRadius.all(Radius.circular(30)),
         ),
+        enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: Colors.transparent), // Set color to transparent
+          ),
+         
+        
       ),
 
       // TIME PICKER //
@@ -129,6 +134,8 @@ class TeAppThemeData {
         hourMinuteTextColor: TeAppColorPalette.green,
         // You can customize other properties as well
       ),
+
+      
 
       datePickerTheme: DatePickerThemeData(
         backgroundColor: TeAppColorPalette.black,

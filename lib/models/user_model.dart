@@ -3,7 +3,7 @@ class UserModel {
   String userUID;
   String profilePicture;
   int creditsAvailable;
-  dynamic reservedClasses;
+  List<dynamic> reservedClasses;
 
   UserModel({
     required this.name,

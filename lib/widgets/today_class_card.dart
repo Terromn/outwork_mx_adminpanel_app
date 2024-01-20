@@ -45,7 +45,7 @@ class TodayClassCard extends StatelessWidget {
         );
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30),
         child: Container(
           decoration: BoxDecoration(
             color: TeAppColorPalette.black,
@@ -60,8 +60,7 @@ class TodayClassCard extends StatelessWidget {
             ],
           ),
           child: Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(TeAppThemeData.contentMargin * .5),
+          
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -105,7 +104,6 @@ class TodayClassCard extends StatelessWidget {
             ),
           ),
         ),
-      ),
     );
   }
 }

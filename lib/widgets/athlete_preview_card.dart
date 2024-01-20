@@ -38,6 +38,7 @@ class AthletePreviewCard extends StatelessWidget {
                         padding: const EdgeInsets.only(right: 18.0),
                         child: CircleAvatar(
                           radius: 50,
+                          backgroundColor: Colors.transparent,
                           backgroundImage: AssetImage(
                               'assets/defaultProfilePictures/${userModel.profilePicture}'),
                         ),

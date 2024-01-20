@@ -15,40 +15,41 @@ class TeFloatingActionButton extends StatelessWidget {
       distance: 100,
       type: ExpandableFabType.up,
       childrenOffset: const Offset(-4, 0),
-      overlayStyle:  ExpandableFabOverlayStyle(
+      overlayStyle: ExpandableFabOverlayStyle(
         blur: 0,
       ),
-
       openButtonBuilder: RotateFloatingActionButtonBuilder(
-        child: const Icon(FontAwesomeIcons.screwdriverWrench, size: 20,),
+        child: const Icon(
+          FontAwesomeIcons.screwdriverWrench,
+          size: 20,
+        ),
         fabSize: ExpandableFabSize.regular,
         foregroundColor: TeAppColorPalette.black,
         backgroundColor: TeAppColorPalette.green,
       ),
       closeButtonBuilder: DefaultFloatingActionButtonBuilder(
-        child: const Icon(FontAwesomeIcons.xmark, size: 22,),
+        child: const Icon(
+          FontAwesomeIcons.xmark,
+          size: 22,
+        ),
         fabSize: ExpandableFabSize.small,
       ),
       children: [
-        FloatingActionButton.small
-        (
-          
+        FloatingActionButton.small(
           child: const Icon(FontAwesomeIcons.qrcode, size: 20),
           onPressed: () {
             Navigator.pushNamed(context, '/QRScannerScreen');
           },
-          
         ),
         FloatingActionButton.small(
-          child: const Icon(FontAwesomeIcons.searchengin, size: 20,),
+          child: const Icon(
+            FontAwesomeIcons.plus,
+            size: 20,
+          ),
           onPressed: () {
-           
+            Navigator.pushNamed(context, '/AddClassScreen');
           },
-          
         ),
-      
-      
-        
       ],
     );
   }

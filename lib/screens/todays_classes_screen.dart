@@ -24,7 +24,7 @@ class TodaysClassesScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(
-          horizontal: TeMediaQuery.getPercentageWidth(context, 15),
+          horizontal: TeMediaQuery.getPercentageWidth(context, 8),
         ),
         child: GridView.builder(
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

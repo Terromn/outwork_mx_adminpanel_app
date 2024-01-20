@@ -65,20 +65,19 @@ class _AtlhetesReservedScreenState extends State<AtlhetesReservedScreen> {
   }
 
   Future<void> fetchUserData(String userId) async {
-      DocumentSnapshot userDoc =
-          await FirebaseFirestore.instance.collection('users').doc(userId).get();
+    DocumentSnapshot userDoc =
+        await FirebaseFirestore.instance.collection('users').doc(userId).get();
 
-      UserModel athlete = UserModel(
-        name: (userDoc.get('name')),
-        userUID: userId,
-        profilePicture: (userDoc.get('profilePicture')),
-        creditsAvailable: (userDoc.get('creditsAvailable')),
-        reservedClasses: (userDoc.get('reservedClasses')),
-      );
-      setState(() {
-        athletesData.add(athlete);
-      });
-
+    UserModel athlete = UserModel(
+      name: (userDoc.get('name')),
+      userUID: userId,
+      profilePicture: (userDoc.get('profilePicture')),
+      creditsAvailable: (userDoc.get('creditsAvailable')),
+      reservedClasses: (userDoc.get('reservedClasses')),
+    );
+    setState(() {
+      athletesData.add(athlete);
+    });
   }
 
   @override
@@ -94,16 +93,26 @@ class _AtlhetesReservedScreenState extends State<AtlhetesReservedScreen> {
         padding: EdgeInsets.symmetric(
           horizontal: TeMediaQuery.getPercentageWidth(context, 10),
         ),
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 7 / 4,
-          ),
-          itemBuilder: (context, index) {
-            return AthletePreviewCard(userModel: athletesData[index]);
-          },
-          itemCount: athletesData.length,
-        ),
+        child: athletesData.isEmpty
+            ? Center(
+                child: Text(
+                  'Cargando Atletas...',
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        color: Colors
+                            .white, // Replace 'Colors.red' with the desired text color
+                      ),
+                ), // Show CircularProgressIndicator while data is loading
+              )
+            : GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  childAspectRatio: 7 / 4,
+                ),
+                itemBuilder: (context, index) {
+                  return AthletePreviewCard(userModel: athletesData[index]);
+                },
+                itemCount: athletesData.length,
+              ),
       ),
     );
   }

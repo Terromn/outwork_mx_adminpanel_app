@@ -11,10 +11,16 @@ class AdministrationScreen extends StatefulWidget {
 class _AdministrationScreenState extends State<AdministrationScreen> {
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       height: double.infinity,
       width: double.infinity,
       color: TeAppColorPalette.blackLight,
+      child: Center(
+        child: Container(
+        height: 100,
+        width: 100,
+        color: Colors.purple,
+      )),
     );
   }
 }
