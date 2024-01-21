@@ -148,14 +148,14 @@ class _AddClassScreenState extends State<AddClassScreen> {
               onPressed: () {
                 Navigator.of(context).pop();
               },
-              child: const Text('Cancel'),
+              child: const Text('Cancel',  style: TextStyle(color: TeAppColorPalette.white),),
             ),
             TextButton(
               onPressed: () {
                 saveClassToFirebase();
                 Navigator.of(context).pop();
               },
-              child: const Text('OK'),
+              child: const Text('OK',  style: TextStyle(color: TeAppColorPalette.white),),
             ),
           ],
         );
@@ -185,7 +185,7 @@ class _AddClassScreenState extends State<AddClassScreen> {
       });
 
       // Navigate back to the home page
-      Navigator.pop(context);
+      Navigator.popUntil(context, (route) => route.isFirst);
 
       // Show another dialog in the home page
       showDialog(
@@ -199,7 +199,7 @@ class _AddClassScreenState extends State<AddClassScreen> {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: const Text('Cerrar'),
+                child: const Text('Cerrar',  style: TextStyle(color: TeAppColorPalette.white),),
               ),
             ],
           );

@@ -29,7 +29,8 @@ class TodayClassCard extends StatelessWidget {
     super.key,
   });
 
-  @override
+
+     @override
   Widget build(BuildContext context) {
     classDuration ??= 0;
 
@@ -59,51 +60,57 @@ class TodayClassCard extends StatelessWidget {
               ),
             ],
           ),
-          child: Expanded(
-          
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 18.0),
-                    child: Container(
-                      width: 70,
-                      height: 70,
-                      decoration: BoxDecoration(
-                        color: TeAppColorPalette.green,
-                        borderRadius: BorderRadius.circular(22),
-                      ),
-                      child: Center(
-                        child: GetIconBasedOnSession.getIcon(
-                            classType, 48, TeAppColorPalette.black),
-                      ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                child: Container(
+                  width: 70,
+                  height: 70,
+                  decoration: BoxDecoration(
+                    color: TeAppColorPalette.green,
+                    borderRadius: BorderRadius.circular(22),
+                  ),
+                  child: Center(
+                    child: GetIconBasedOnSession.getIcon(
+                      classType,
+                      36,
+                      TeAppColorPalette.black,
                     ),
                   ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                          "$classType ${classTime != null ? DateFormat.jm().format(classTime!) : ""}",
-                          style: Theme.of(context).textTheme.displayLarge),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text("$atletasAsistiendo Atletas asistiendo",
-                          style: Theme.of(context).textTheme.displayMedium),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text(
-                          "$coachName, $classDuration ${classDuration! <= 1 ? "hora" : "horas"}",
-                          style: Theme.of(context).textTheme.displaySmall),
-                    ],
-                  ),
-                ],
+                ),
               ),
-            ),
-          ),
+              Expanded( // Moved the Expanded widget inside the Row
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "$classType ${classTime != null ? DateFormat.jm().format(classTime!) : ""}",
+                      style: Theme.of(context).textTheme.displayLarge,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "$atletasAsistiendo Atletas asistiendo",
+                      style: Theme.of(context).textTheme.displayMedium,
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Text(
+                      "$coachName, $classDuration ${classDuration! <= 1 ? "hora" : "horas"}",
+                      style: Theme.of(context).textTheme.displaySmall,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ), 
         ),
+      ),
     );
   }
-}
+  }
